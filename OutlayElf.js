@@ -1,4 +1,3 @@
-// This is a sample code for your bot
 function MessageHandler(context, event) {
     context.console.log(test)
     if(event.message.toLowerCase() == httptest) {
@@ -14,6 +13,41 @@ function MessageHandler(context, event) {
         context.sendResponse('No keyword found  '+event.message); 
     }
 }
+
+// Handle report related keywords
+function HandleReport(command) {
+
+}
+
+// Handle Junk
+function HandleJunk(junk) {
+
+}
+
+// Adding gain to Cash in Hand
+function AddGain(gain) {
+
+}
+
+// Adding new expense Cash in Hand
+function AddExpense(expense) {
+
+}
+
+// Cash In Hand Management
+function CashInHand(money) {
+}
+
+// future enhancement
+function StartTrip() {
+
+}
+
+// future enhancement
+function endTrip() {
+
+}
+
 // Functions declared below are required 
 function EventHandler(context, event) {
     if(! context.simpledb.botleveldata.numinstance)
