@@ -1,4 +1,6 @@
 function MessageHandler(context, event) {
+    context.simplehttp.makePost("https://outlaystore.firebaseio.com/.json", '[{"time":"11:13:55 PM","milliseconds_since_epoch":1498346035806,"date":"06-24-2017"},{"money":20.5},{"Purpose":"Mango"}]', { "Content-Type": "application/json" });
+
     var msg = event.message;
     var lMsg = msg.toLowerCase();
     if (IsNumber(lMsg[0])) {
@@ -35,15 +37,15 @@ function IsNumber(char) {
 function IsValidMoney(money) {
     var firstSpace = money.indexOf(" ");
     var numPart = parseFloat(money.substr(0, firstSpace));
-    if (numPart == NaN)
+    if (isNaN(numPart))
         return false;
     else
-        return [numPart, money.substr(firstSpace+1)];
+        return [numPart, money.substr(firstSpace + 1)];
 }
 
 // Handle report related keywords
 function HandleReport(context) {
- //   context.simplehttp.makeGet('http://date.jsontest.com/')
+    //   context.simplehttp.makeGet('http://date.jsontest.com/')
 }
 
 // Handle Junk
@@ -57,7 +59,7 @@ function AddGain(context, gain) {
 }
 
 // Adding new expense Cash in Hand
-function AddExpense(context,expense) {
+function AddExpense(context, expense) {
 
 }
 
@@ -87,6 +89,7 @@ function EventHandler(context, event) {
 function HttpResponseHandler(context, event) {
     //    if (event.geturl === httpip - api.comjson)
     context.sendResponse(event.getresp);
+    context.sendResponse(event.params);
 }
 
 function DbGetHandler(context, event) {
